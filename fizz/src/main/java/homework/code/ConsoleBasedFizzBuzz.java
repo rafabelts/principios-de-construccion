@@ -1,15 +1,27 @@
 package homework.code;
 
 public class ConsoleBasedFizzBuzz implements FizzBuzz {
-    public void print(int from, int to) {
+
+    // extract method
+    public String getFizzBuzzValue(int number) {
+         StringBuilder result = new StringBuilder();
+
+         // substitute algorithm
+         if(number % 3 == 0) {
+             result.append("Fizz");
+         }
+
+         if(number % 5 == 0) {
+             result.append("Buzz");
+         }
+
+         // replace temp with query
+        return result.isEmpty() ? String.valueOf(number) : result.toString();
+    }
+
+    public void printResult(int from, int to) {
         for (int i = from; i <= to; i++) {
-            if (i % 3 == 0 && i % 5 == 0) {
-                System.out.println("FizzBuzz");
-            } else if (i % 3 == 0) {
-                System.out.println("Fizz");
-            } else if (i % 5 == 0) {
-                System.out.println("Buzz");
-            }
+           System.out.println(getFizzBuzzValue(i));
         }
     }
 }
